@@ -2,6 +2,7 @@ import os
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from src.db_config import DBConfig
 
 db = SQLAlchemy(
     engine_options={
@@ -14,7 +15,8 @@ def create_app(app_name):
     Create Flask app and setup DB
     """
     app = Flask(app_name)
-    # POSTGRES_URI = f'postgresql://{DBConfig.user}:{DBConfig.password}@{DBConfig.hostMaster}:{DBConfig.port}/{DBConfig.name}'
+    postgres_uri = f'postgresql://{DBConfig.user}:{DBConfig.password}@{DBConfig.hostMaster}:{DBConfig.port}/{DBConfig.name}'
+    app.config["SQLALCHEMY_DATABASE_URI"] = postgres_uri
 
     # Connect SQLAlchemy to the Flask app
     global db

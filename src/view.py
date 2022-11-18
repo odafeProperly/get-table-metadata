@@ -2,6 +2,7 @@ import json
 from flask import Flask, request, Response
 from flask.views import MethodView
 from src.handler import MetaDataHandler
+from sqlalchemy import MetaData
 
 class MetaDataView(MethodView):
 
@@ -12,4 +13,5 @@ class MetaDataView(MethodView):
         """
         get meta data of a table
         """
-        return {}
+        print(MetaData())
+        return self.handler.get_meta_data()

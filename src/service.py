@@ -1,4 +1,4 @@
-from src.repository import MetaDataRepository
+from src.datalayer.models.repository import MetaDataRepository
 
 
 class MetaDataService :
@@ -7,4 +7,4 @@ class MetaDataService :
         self.reposotory = MetaDataRepository()
 
     def get_meta_data(self):
-        return {}
+        return self.reposotory.get_meta_data()
