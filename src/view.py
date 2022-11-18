@@ -13,5 +13,4 @@ class MetaDataView(MethodView):
         """
         get meta data of a table
         """
-        print(MetaData())
         return self.handler.get_meta_data()

@@ -1,7 +1,6 @@
 import os
-from src.config import create_app
+from src.config import create_app, connectDB
 from src.view import MetaDataView
-from sqlalchemy import MetaData
 
 # Create the Flask app, preparing the DB connection and starting an application context
 app = create_app(__name__)
@@ -13,7 +12,7 @@ app.add_url_rule(
 )
 
 def main():
-    print(MetaData())
+    connectDB()
     app.run(debug=True, port=8081)
 
 if __name__ == "__main__":
